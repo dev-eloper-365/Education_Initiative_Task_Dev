@@ -45,17 +45,33 @@ This project serves as a comprehensive demonstration of several software design 
 - Observer notifications to subscribed listeners
 - Access control proxy for secure device operations
 
-## Getting Started
+## Getting Started (JDK only, no Maven)
 
-Prerequisites: Java 17+, Maven 3.9+
+Prerequisites: Java 17+ (JDK)
 
-1. Build the project:
+1. Clone the repository:
    ```
-   mvn clean package
+   git clone <repository-url>
    ```
-2. Run the program:
+2. Navigate to the project directory:
    ```
-   mvn exec:java -Dexec.mainClass="com.smarthome.core.Main"
+   cd Smart-Home-System
+   ```
+3. Compile the Java files:
+   - Windows (PowerShell):
+     ```
+     mkdir out
+     dir /s /b src\main\java\*.java > sources.txt
+     javac --% -encoding UTF-8 -d out @sources.txt
+     ```
+   - macOS/Linux (bash):
+     ```
+     mkdir -p out
+     javac -encoding UTF-8 -d out $(find src/main/java -name "*.java")
+     ```
+4. Run the main class:
+   ```
+   java -cp out com.smarthome.core.Main
    ```
 
 ## Usage
