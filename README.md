@@ -1,8 +1,8 @@
-# Smart Home Dev
+# Smart Home System
 
 ## Introduction
 
-Smart Home Dev is a production-ready Smart Home System that consolidates and improves two original projects ("Smart Home Devesh" and "Smart Home Shreysty"). It emphasizes clean Java architecture, robust design patterns, and clear documentation for fast onboarding and extension.
+This project serves as a comprehensive demonstration of several software design patterns implemented in Java. It aims to provide a clear and concise understanding of how these design patterns can be applied to real-world scenarios, showcasing their benefits and practical usage.
 
 ## Design Patterns Implemented
 
@@ -89,7 +89,7 @@ Door 3 is Locked.
 ![Architecture Diagram](classdiagramimages/smarthome-architecture.png)
 
 ```
-Smart Home Dev/
+Smart Home System/
   ├─ pom.xml
   ├─ README.md
   └─ src/
