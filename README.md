@@ -14,15 +14,13 @@ This project serves as a comprehensive demonstration of several software design 
      - Use case: Smart Home device status notifications (e.g., broadcasting on/off, lock/unlock, temperature changes)
 
     ![Class Diagram](classdiagramimages/observer.png)
-    [Source (observer.puml)](classdiagramimages/observer.puml)
 
 2. **Creational Patterns**:
    - **Factory Method Pattern**: `DeviceFactory` creates typed devices using the `DeviceType` enum.
      - Implemented in: `com.smarthome.core`
      - Use case: Provisioning smart devices (Light, Thermostat, Door) with validated initial state
 
-    ![Class Diagram](classdiagramimages/factory.png)
-    [Source (factory.puml)](classdiagramimages/factory.puml)
+    ![Class Diagram](classdiagramimages/Factory.png)
 
 3. **Structural Patterns**:
    - **Proxy Pattern**: `DeviceProxy` performs simple authorization checks before delegating to real `Device` implementations.
@@ -30,7 +28,6 @@ This project serves as a comprehensive demonstration of several software design 
      - Use case: Access control for device operations via a protection proxy
 
     ![Class Diagram](classdiagramimages/proxy.png)
-    [Source (proxy.puml)](classdiagramimages/proxy.puml)
 
 4. **Singleton Pattern**:
    - `SmartHomeHub` is a thread-safe singleton (double-checked locking) providing a single point of coordination.
@@ -38,7 +35,6 @@ This project serves as a comprehensive demonstration of several software design 
      - Use case: Central hub as the single source of truth and coordinator
 
     ![Class Diagram](classdiagramimages/singleton.png)
-    [Source (singleton.puml)](classdiagramimages/singleton.puml)
 
 ## Features
 
@@ -109,9 +105,6 @@ Door 3 is Locked.
 ## Architecture
 
 ![Architecture Diagram](classdiagramimages/smarthome.png)
-[Source (smarthome-overview.puml)](classdiagramimages/smarthome-overview.puml)
-
-> Exporting PNGs: `plantuml -tpng classdiagramimages/*.puml` (or use a PlantUML IDE extension)
 
 ```
 Smart Home System/
