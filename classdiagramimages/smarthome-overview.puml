@@ -1,0 +1,152 @@
+  @startuml SmartHomeSystem_Overview
+  skinparam classAttributeIconSize 0
+  hide empty members
+
+  package "com.smarthome.core" {
+
+    interface DeviceObserver {
+      +update(message: String)
+    }
+
+    interface Subject {
+      +registerObserver(observer: DeviceObserver)
+      +unregisterObserver(observer: DeviceObserver)
+      +notifyObservers(message: String)
+    }
+
+    interface Device extends DeviceObserver {
+      +turnOn()
+      +turnOff()
+      +deviceType(): String
+      +getId(): int
+      +statusSummary(): String
+    }
+
+    enum DeviceType {
+      LIGHT
+      THERMOSTAT
+      DOOR
+    }
+
+    class DeviceFactory {
+      +buildDevice(id: int, type: DeviceType, statusOrValue: String): Device
+    }
+
+    class DeviceProxy {
+      -realDevice: Device
+      -username: String
+      +DeviceProxy(realDevice: Device, username: String)
+      +turnOn()
+      +turnOff()
+      +authorizeUser(): boolean
+    }
+
+    class Trigger {
+      -condition: String
+      -action: String
+      -id: int
+      +Trigger(condition: String, action: String, id: int)
+      +isTriggered(device: Device): boolean
+      +getAction(): String
+      +getCondition(): String
+      +getId(): int
+    }
+
+    class Schedule {
+      -device: Device
+      -time: String
+      -action: String
+      +Schedule(device: Device, time: String, action: String)
+      +schedule()
+      +execute()
+    }
+
+    class SmartHomeHub implements Subject {
+      -static instance: SmartHomeHub
+      -idToDevice: Map<int, Device>
+      -triggers: List<Trigger>
+      -observers: List<DeviceObserver>
+      {static} +getInstance(): SmartHomeHub
+      +addDevice(device: Device)
+      +removeDevice(device: Device)
+      +turnOn(id: int)
+      +turnOff(id: int)
+      +setSchedule(deviceId: int, time: String, action: String)
+      +addTrigger(condition: String, action: String)
+      +checkTriggers()
+      +getStatusReport(): String
+      +registerObserver(observer: DeviceObserver)
+      +unregisterObserver(observer: DeviceObserver)
+      +notifyObservers(message: String)
+    }
+  }
+
+  package "com.smarthome.core.devices" {
+    class Light implements Device {
+      -id: int
+      -status: String
+      +Light(id: int, initialStatus: String)
+      +turnOn()
+      +turnOff()
+      +deviceType(): String
+      +getId(): int
+      +statusSummary(): String
+    }
+
+    class Thermostat implements Device {
+      -id: int
+      -temperature: int
+      +Thermostat(id: int, initialTemperature: int)
+      +turnOn()
+      +turnOff()
+      +getTemperature(): int
+      +setTemperature(temperature: int)
+      +deviceType(): String
+      +getId(): int
+      +statusSummary(): String
+    }
+
+    class Door implements Device {
+      -id: int
+      -status: String
+      +Door(id: int, initialStatus: String)
+      +turnOn()
+      +turnOff()
+      +deviceType(): String
+      +getId(): int
+      +statusSummary(): String
+    }
+  }
+
+  package "com.smarthome.core.exceptions" {
+    class InvalidTriggerException
+    class UnauthorizedAccessException
+    class UnsupportedActionException
+  }
+
+  ' Relationships
+DeviceFactory ..> DeviceType
+DeviceFactory ..> Device : creates
+
+  Device <|.. Light
+  Device <|.. Thermostat
+  Device <|.. Door
+
+SmartHomeHub "1" o-- "0..*" Device : manages
+SmartHomeHub "1" -- "0..*" Trigger : holds
+SmartHomeHub ..> Schedule : schedules
+SmartHomeHub "1" o-- "0..*" DeviceObserver : notifies
+
+DeviceProxy ..> Device : delegates
+
+Trigger ..> Thermostat : reads temperature
+
+Schedule "1" --> "1" Device : for device
+
+  SmartHomeHub ..> UnsupportedActionException : throws
+  DeviceProxy ..> UnauthorizedAccessException : throws
+  SmartHomeHub ..> InvalidTriggerException : throws
+
+  @enduml
+
+

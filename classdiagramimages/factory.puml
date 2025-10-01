@@ -1,0 +1,49 @@
+@startuml name
+skinparam classAttributeIconSize 0
+hide empty members
+
+enum DeviceType {
+  LIGHT
+  THERMOSTAT
+  DOOR
+}
+
+interface Device {
+  +turnOn()
+  +turnOff()
+  +deviceType(): String
+  +getId(): int
+}
+
+class DeviceFactory {
+  +buildDevice(id: int, type: DeviceType, statusOrValue: String): Device
+}
+
+class Light {
+  -id: int
+  -status: String
+  +turnOn()
+  +turnOff()
+  +statusSummary(): String
+}
+class Thermostat {
+  +getTemperature(): int
+  +setTemperature(t: int)
+}
+class Door {
+  -id: int
+  -status: String
+  +turnOn()
+  +turnOff()
+  +statusSummary(): String
+}
+
+Device <|.. Light
+Device <|.. Thermostat
+Device <|.. Door
+
+DeviceFactory ..> DeviceType
+DeviceFactory ..> Device : creates
+@enduml
+
+

@@ -1,0 +1,31 @@
+@startuml name
+skinparam classAttributeIconSize 0
+hide empty members
+class SmartHomeHub {
+  -static instance: SmartHomeHub
+  -idToDevice: Map<int, Device>
+  {static} +getInstance(): SmartHomeHub
+  +addDevice(d: Device)
+  +removeDevice(d: Device)
+  +turnOn(id: int)
+  +turnOff(id: int)
+  +setSchedule(deviceId: int, time: String, action: String)
+}
+
+interface Device
+class Light
+class Thermostat
+class Door
+
+SmartHomeHub o--> Device : manages *
+Device <|.. Light
+Device <|.. Thermostat
+Device <|.. Door
+
+note right of SmartHomeHub
+Thread-safe singleton
+(double-checked locking)
+end note
+@enduml
+
+

@@ -1,0 +1,31 @@
+@startuml name
+skinparam classAttributeIconSize 0
+hide empty members
+interface Device {
+  +turnOn()
+  +turnOff()
+  +getId(): int
+  +deviceType(): String
+  +statusSummary(): String
+}
+
+class Light
+class Thermostat
+class Door
+
+class DeviceProxy {
+  -realDevice: Device
+  -username: String
+  +DeviceProxy(realDevice: Device, username: String)
+  +turnOn()
+  +turnOff()
+  +authorizeUser(): boolean
+}
+
+DeviceProxy ..> Device : delegates
+Device <|.. Light
+Device <|.. Thermostat
+Device <|.. Door
+@enduml
+
+

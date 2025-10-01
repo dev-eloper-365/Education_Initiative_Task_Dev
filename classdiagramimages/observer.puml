@@ -1,0 +1,47 @@
+@startuml name
+skinparam classAttributeIconSize 0
+hide empty members
+
+interface DeviceObserver {
+  +update(message: String)
+}
+
+interface Subject {
+  +registerObserver(o: DeviceObserver)
+  +unregisterObserver(o: DeviceObserver)
+  +notifyObservers(message: String)
+}
+
+class SmartHomeHub {
+  -idToDevice: Map<int, Device>
+  -observers: List<DeviceObserver>
+  +registerObserver(o)
+  +unregisterObserver(o)
+  +notifyObservers(message)
+  +turnOn(id: int)
+  +turnOff(id: int)
+}
+
+interface Device {
+  +turnOn() 
+  +turnOff()
+  +deviceType(): String
+  +getId(): int
+  +statusSummary(): String
+}
+
+class Light
+class Thermostat
+class Door
+
+Subject <|.. SmartHomeHub
+DeviceObserver <|.. Device
+Device <|.. Light
+Device <|.. Thermostat
+Device <|.. Door
+
+SmartHomeHub o--> DeviceObserver : notifies *
+SmartHomeHub o--> Device : manages *
+@enduml
+
+
