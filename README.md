@@ -8,21 +8,29 @@ Smart Home Dev is a production-ready Smart Home System that consolidates and imp
 
 1. **Behavioral Patterns**:
    - **Observer Pattern**: `SmartHomeHub` implements `Subject` to notify `DeviceObserver` subscribers on state changes.
+     - Implemented in: `com.smarthome.core`
+     - Use case: Smart Home device status notifications (e.g., broadcasting on/off, lock/unlock, temperature changes)
 
      ![Class Diagram](classdiagramimages/observer.png)
 
 2. **Creational Patterns**:
    - **Factory Method Pattern**: `DeviceFactory` creates typed devices using the `DeviceType` enum.
+     - Implemented in: `com.smarthome.core`
+     - Use case: Provisioning smart devices (Light, Thermostat, Door) with validated initial state
 
      ![Class Diagram](classdiagramimages/factory.png)
 
 3. **Structural Patterns**:
    - **Proxy Pattern**: `DeviceProxy` performs simple authorization checks before delegating to real `Device` implementations.
+     - Implemented in: `com.smarthome.core`
+     - Use case: Access control for device operations via a protection proxy
 
      ![Class Diagram](classdiagramimages/proxy.png)
 
 4. **Singleton Pattern**:
    - `SmartHomeHub` is a thread-safe singleton (double-checked locking) providing a single point of coordination.
+     - Implemented in: `com.smarthome.core`
+     - Use case: Central hub as the single source of truth and coordinator
 
      ![Class Diagram](classdiagramimages/singleton.png)
 
