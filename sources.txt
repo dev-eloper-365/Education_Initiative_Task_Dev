@@ -14,3 +14,4 @@ C:\Users\admin\Music\projects\Education_Initiative_Task_Dev\src\main\java\com\sm
 C:\Users\admin\Music\projects\Education_Initiative_Task_Dev\src\main\java\com\smarthome\core\exceptions\InvalidTriggerException.java
 C:\Users\admin\Music\projects\Education_Initiative_Task_Dev\src\main\java\com\smarthome\core\exceptions\UnauthorizedAccessException.java
 C:\Users\admin\Music\projects\Education_Initiative_Task_Dev\src\main\java\com\smarthome\core\exceptions\UnsupportedActionException.java
+C:\Users\admin\Music\projects\Education_Initiative_Task_Dev\src\test\java\com\smarthome\core\SmartHomeHubTest.java
