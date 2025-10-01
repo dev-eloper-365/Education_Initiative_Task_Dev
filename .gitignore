@@ -14,12 +14,9 @@ Thumbs.db
 # Logs
 *.log
 
-# PlantUML cache (optional)
+# Eclipse/other
 .classpath
 .project
 
-.vscode/
-
-.readme_reference.md
-
-.gitignore
+# Project-specific
+README_reference.md
