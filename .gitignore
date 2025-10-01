@@ -17,3 +17,9 @@ Thumbs.db
 # PlantUML cache (optional)
 .classpath
 .project
+
+.vscode/
+
+.readme_reference.md
+
+.gitignore
