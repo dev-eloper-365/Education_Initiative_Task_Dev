@@ -1,5 +1,6 @@
 # Compiled classes
 out/
+target/
 
 # Build artifacts
 sources.txt
