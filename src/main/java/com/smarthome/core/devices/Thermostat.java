@@ -45,7 +45,8 @@ public class Thermostat implements Device {
 
     @Override
     public String statusSummary() {
-        return deviceType() + " " + id + " is set to " + temperature + " degrees.";
+        String deviceName = DeviceType.THERMOSTAT.name().substring(0, 1) + DeviceType.THERMOSTAT.name().substring(1).toLowerCase();
+        return deviceName + " is set to " + temperature + " degrees.";
     }
 
     @Override

@@ -22,7 +22,7 @@ public class Light implements Device {
 
     @Override
     public void turnOff() {
-        this.status = "on";
+        this.status = "off";
     }
 
     public String getStatus() {
@@ -45,7 +45,9 @@ public class Light implements Device {
 
     @Override
     public String statusSummary() {
-        return deviceType() + " " + id + " is " + status + ".";
+        String deviceName = DeviceType.LIGHT.name().substring(0, 1) + DeviceType.LIGHT.name().substring(1).toLowerCase();
+        String statusCap = status.substring(0, 1).toUpperCase() + status.substring(1).toLowerCase();
+        return deviceName + " " + id + " is " + statusCap + ".";
     }
 
     @Override

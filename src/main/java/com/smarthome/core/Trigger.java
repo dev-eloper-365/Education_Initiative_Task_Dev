@@ -33,7 +33,7 @@ public class Trigger {
             return false;
         }
 
-        if (device instanceof Thermostat && "temperature".equals(property)) {
+        if (device instanceof Thermostat && "temperature".equalsIgnoreCase(property)) {
             int deviceTemperature = ((Thermostat) device).getTemperature();
             return switch (operator) {
                 case ">" -> deviceTemperature > value;

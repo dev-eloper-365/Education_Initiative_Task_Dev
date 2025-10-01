@@ -77,8 +77,9 @@ public class SmartHomeHub implements Subject {
             logger.log(Level.WARNING, "Device with ID " + deviceId + " not found.");
             throw new UnsupportedActionException("Device with ID " + deviceId + " not found.");
         }
-        logger.info("Scheduled Task - [device: " + device.deviceType() + ", time: " + time + ", command: " + action + "]");
-        new Schedule(device, time, action).schedule();
+        String normalized = normalizeAction(action);
+        logger.info("Scheduled Task - [device: " + device.deviceType() + ", time: " + time + ", command: " + normalized + "]");
+        new Schedule(device, time, normalized).schedule();
     }
 
     public void addTrigger(String condition, String action) throws InvalidTriggerException, UnsupportedActionException {
@@ -124,19 +125,31 @@ public class SmartHomeHub implements Subject {
     }
 
     private void executeAction(String action, int id) throws UnsupportedActionException {
-        switch (action) {
+        String normalized = normalizeAction(action);
+        switch (normalized) {
             case "turnOff" -> turnOff(id);
             case "turnOn" -> turnOn(id);
             default -> throw new UnsupportedActionException("Unsupported Action - " + action);
         }
     }
 
+    private static String normalizeAction(String action) {
+        if (action == null) return null;
+        String a = action.trim().toLowerCase().replace(" ", "");
+        if (a.equals("turnon") || a.equals("on")) return "turnOn";
+        if (a.equals("turnoff") || a.equals("off")) return "turnOff";
+        return action;
+    }
+
     public String getStatusReport() throws UnsupportedActionException {
         StringBuilder sb = new StringBuilder();
         for (Device device : idToDevice.values()) {
             sb.append(device.statusSummary());
+            if (!sb.toString().endsWith("\n")) {
+                sb.append("\n");
+            }
         }
-        return sb.toString();
+        return sb.toString().trim();
     }
 
     @Override

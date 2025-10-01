@@ -22,7 +22,7 @@ public class Door implements Device {
 
     @Override
     public void turnOff() {
-        this.status = "unlocked";
+        this.status = "locked";
     }
 
     public String getStatus() {
@@ -45,7 +45,9 @@ public class Door implements Device {
 
     @Override
     public String statusSummary() {
-        return deviceType() + " " + id + " is " + status + ".";
+        String deviceName = DeviceType.DOOR.name().substring(0, 1) + DeviceType.DOOR.name().substring(1).toLowerCase();
+        String statusCap = status.substring(0, 1).toUpperCase() + status.substring(1).toLowerCase();
+        return deviceName + " " + id + " is " + statusCap + ".";
     }
 
     @Override
