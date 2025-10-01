@@ -1,0 +1,19 @@
+# Compiled classes
+out/
+
+# Build artifacts
+sources.txt
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# PlantUML cache (optional)
+.classpath
+.project

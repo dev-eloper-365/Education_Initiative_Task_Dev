@@ -74,6 +74,24 @@ Prerequisites: Java 17+ (JDK)
    java -cp out com.smarthome.core.Main
    ```
 
+### Run the plain Java test (optional)
+
+1. Compile test sources into the same `out` folder:
+   - Windows (PowerShell):
+     ```
+     dir /s /b src\test\java\*.java >> sources.txt
+     javac --% -encoding UTF-8 -d out @sources.txt
+     ```
+   - macOS/Linux (bash):
+     ```
+     find src/test/java -name "*.java" >> sources.txt
+     javac -encoding UTF-8 -d out @sources.txt
+     ```
+2. Run the test runner:
+   ```
+   java -cp out com.smarthome.core.SmartHomeHubTest
+   ```
+
 ## Usage
 
 Use the `SmartHomeHub` to register and control devices, set schedules, and define simple triggers.
@@ -108,7 +126,6 @@ Door 3 is Locked.
 
 ```
 Smart Home System/
-  ├─ pom.xml
   ├─ README.md
   └─ src/
      ├─ main/

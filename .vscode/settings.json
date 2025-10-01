@@ -5,9 +5,11 @@
         "**/.hg": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
-        ".vscode": true
+        ".vscode": true,
+        "classdiagramimages": true
     },
     "hide-files.files": [
-        ".vscode"
+        ".vscode",
+        "classdiagramimages"
     ]
 }
