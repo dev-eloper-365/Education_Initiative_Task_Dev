@@ -1,0 +1,70 @@
+@startuml Factory Pattern - Vehicle Manufacturing
+!theme plain
+hide empty members
+title Factory Pattern - Vehicle Manufacturing System
+
+interface Vehicle {
+    +manufacture(): void
+}
+
+class Car {
+    +manufacture(): void
+}
+
+class Motorcycle {
+    +manufacture(): void
+}
+
+class Truck {
+    +manufacture(): void
+}
+
+class VehicleFactory {
+    +createVehicle(vehicleType: String): Vehicle
+}
+
+class VehicleManufacturingDemo {
+    +main(args: String[]): void
+}
+
+Vehicle <|.. Car : implements
+Vehicle <|.. Motorcycle : implements
+Vehicle <|.. Truck : implements
+VehicleFactory ..> Vehicle : creates
+VehicleFactory ..> Car : creates
+VehicleFactory ..> Motorcycle : creates
+VehicleFactory ..> Truck : creates
+VehicleManufacturingDemo ..> VehicleFactory : uses
+
+note right of Vehicle
+  Product Interface
+  Defines common behavior
+  for all vehicle types
+end note
+
+note right of VehicleFactory
+  Factory Class
+  Creates vehicles based
+  on input parameter
+  Encapsulates object creation
+end note
+
+note bottom of Car
+  Concrete Product
+  Implements specific
+  car manufacturing logic
+end note
+
+note bottom of Motorcycle
+  Concrete Product
+  Implements specific
+  motorcycle manufacturing logic
+end note
+
+note bottom of Truck
+  Concrete Product
+  Implements specific
+  truck manufacturing logic
+end note
+
+@enduml

@@ -15,6 +15,15 @@ Exercise1_DesignPatterns/
 ├── structural/
 │   ├── adapter/           # Legacy Payment System Integration
 │   └── decorator/         # Coffee Ordering System
+├── uml/                   # UML diagrams for all patterns
+│   ├── observer-pattern.puml
+│   ├── strategy-pattern.puml
+│   ├── factory-pattern.puml
+│   ├── builder-pattern.puml
+│   ├── adapter-pattern.puml
+│   ├── decorator-pattern.puml
+│   ├── exercise1-overview.puml
+│   └── README.md          # UML documentation
 ├── util/
 │   └── LoggerUtil.java    # Gold standard logging utility
 └── Main.java              # Interactive menu system
@@ -26,7 +35,10 @@ Exercise1_DesignPatterns/
 
 #### Observer Pattern - Stock Market Notification System
 - **Location**: `behavioral/observer/`
+- **UML Diagram**: `uml/observer-pattern.puml`
 - **Use Case**: Real-time stock price notifications to multiple traders
+
+![Observer Pattern UML](uml/Observer%20Pattern%20-%20Stock%20Market%20Notification%20System.png)
 - **Key Classes**:
   - `StockMarket`: Subject that maintains stock prices
   - `StockObserver`: Observer interface for notifications
@@ -35,7 +47,10 @@ Exercise1_DesignPatterns/
 
 #### Strategy Pattern - Payment Processing System
 - **Location**: `behavioral/strategy/`
+- **UML Diagram**: `uml/strategy-pattern.puml`
 - **Use Case**: Multiple payment methods in an e-commerce system
+
+![Strategy Pattern UML](uml/Strategy%20Pattern%20-%20Payment%20Processing.png)
 - **Key Classes**:
   - `PaymentStrategy`: Strategy interface
   - `CreditCardPayment`, `PayPalPayment`: Concrete strategies
@@ -46,7 +61,10 @@ Exercise1_DesignPatterns/
 
 #### Factory Pattern - Vehicle Manufacturing System
 - **Location**: `creational/factory/`
+- **UML Diagram**: `uml/factory-pattern.puml`
 - **Use Case**: Manufacturing different types of vehicles
+
+![Factory Pattern UML](uml/Factory%20Pattern%20-%20Vehicle%20Manufacturing.png)
 - **Key Classes**:
   - `Vehicle`: Product interface
   - `Car`, `Motorcycle`, `Truck`: Concrete products
@@ -55,7 +73,10 @@ Exercise1_DesignPatterns/
 
 #### Builder Pattern - Computer Configuration System
 - **Location**: `creational/builder/`
+- **UML Diagram**: `uml/builder-pattern.puml`
 - **Use Case**: Building custom computer configurations
+
+![Builder Pattern UML](uml/Builder%20Pattern%20-%20Computer%20Configuration.png)
 - **Key Classes**:
   - `Computer`: Complex product with multiple components
   - `ComputerBuilder`: Builder for step-by-step construction
@@ -65,7 +86,10 @@ Exercise1_DesignPatterns/
 
 #### Adapter Pattern - Legacy Payment System Integration
 - **Location**: `structural/adapter/`
+- **UML Diagram**: `uml/adapter-pattern.puml`
 - **Use Case**: Integrating legacy payment systems with modern interfaces
+
+![Adapter Pattern UML](uml/Adapter%20Pattern%20-%20Legacy%20Payment%20System.png)
 - **Key Classes**:
   - `ModernPaymentGateway`: Target interface
   - `LegacyPaymentSystem`: Existing system with incompatible interface
@@ -74,12 +98,39 @@ Exercise1_DesignPatterns/
 
 #### Decorator Pattern - Coffee Ordering System
 - **Location**: `structural/decorator/`
+- **UML Diagram**: `uml/decorator-pattern.puml`
 - **Use Case**: Adding features to coffee orders dynamically
+
+![Decorator Pattern UML](uml/Decorator%20Pattern%20-%20Coffee%20Ordering.png)
 - **Key Classes**:
   - `Coffee`: Component interface
   - `SimpleCoffee`: Base concrete component
   - `MilkDecorator`, `SugarDecorator`: Concrete decorators
 - **Benefits**: Dynamic feature addition, flexible composition
+
+## UML Diagrams
+
+This project includes comprehensive UML class diagrams for all implemented design patterns:
+
+### Individual Pattern Diagrams
+- **Observer Pattern**: `uml/observer-pattern.puml` - Stock Market notification system
+- **Strategy Pattern**: `uml/strategy-pattern.puml` - Payment processing system  
+- **Factory Pattern**: `uml/factory-pattern.puml` - Vehicle manufacturing system
+- **Builder Pattern**: `uml/builder-pattern.puml` - Computer configuration system
+- **Adapter Pattern**: `uml/adapter-pattern.puml` - Legacy payment integration
+- **Decorator Pattern**: `uml/decorator-pattern.puml` - Coffee ordering system
+
+### System Overview
+- **Complete Architecture**: `uml/exercise1-overview.puml` - Full system structure
+
+*Note: Generate PNG from PUML file using PlantUML for visual diagram*
+
+### Viewing UML Diagrams
+1. **Online**: Copy content to [PlantUML Online Server](http://www.plantuml.com/plantuml/uml/)
+2. **VS Code**: Install PlantUML extension and press `Alt+D`
+3. **Local**: Use PlantUML JAR to generate PNG/SVG files
+
+See `uml/README.md` for detailed instructions and diagram explanations.
 
 ## Gold Standards Implementation
 

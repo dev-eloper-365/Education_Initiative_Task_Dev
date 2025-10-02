@@ -1,0 +1,72 @@
+    @startuml Adapter Pattern - Legacy Payment System
+    !theme plain
+    hide empty members
+    title Adapter Pattern - Legacy Payment System Integration
+
+    interface ModernPaymentGateway {
+        +processPayment(amount: double): void
+    }
+
+    class LegacyPaymentSystem {
+        +makePayment(amount: String): void
+    }
+
+    class LegacyPaymentAdapter {
+        -legacySystem: LegacyPaymentSystem
+        +LegacyPaymentAdapter(legacySystem: LegacyPaymentSystem)
+        +processPayment(amount: double): void
+    }
+
+    class ModernPaymentProcessor {
+        -paymentGateway: ModernPaymentGateway
+        +ModernPaymentProcessor(gateway: ModernPaymentGateway)
+        +processPayment(amount: double): void
+    }
+
+    class PaymentSystemIntegrationDemo {
+        +main(args: String[]): void
+    }
+
+    ModernPaymentGateway <|.. LegacyPaymentAdapter : implements
+    LegacyPaymentAdapter o--> LegacyPaymentSystem : adapts
+    ModernPaymentProcessor o--> ModernPaymentGateway : uses
+    PaymentSystemIntegrationDemo ..> LegacyPaymentSystem : creates
+    PaymentSystemIntegrationDemo ..> LegacyPaymentAdapter : creates
+    PaymentSystemIntegrationDemo ..> ModernPaymentProcessor : creates
+
+    note right of ModernPaymentGateway
+    Target Interface
+    Modern interface that
+    client code expects
+    end note
+
+    note right of LegacyPaymentSystem
+    Adaptee
+    Existing legacy system
+    with incompatible interface
+    (uses String instead of double)
+    end note
+
+    note right of LegacyPaymentAdapter
+    Adapter
+    Converts modern interface calls
+    to legacy system calls
+    Handles data type conversion
+    end note
+
+    note right of ModernPaymentProcessor
+    Client
+    Uses modern interface
+    Unaware of legacy system
+    end note
+
+    note as AdapterFlow
+    **Adapter Pattern Flow:**
+    1. Client calls modern interface
+    2. Adapter receives call
+    3. Adapter converts parameters
+    4. Adapter calls legacy system
+    5. Legacy system processes request
+    end note
+
+    @enduml

@@ -1,0 +1,62 @@
+@startuml Builder Pattern - Computer Configuration
+!theme plain
+hide empty members
+title Builder Pattern - Computer Configuration System
+
+class Computer {
+    -cpu: String
+    -ram: String
+    -storage: String
+    -gpu: String
+    -Computer(builder: ComputerBuilder)
+    +toString(): String
+}
+
+class ComputerBuilder {
+    -cpu: String
+    -ram: String
+    -storage: String
+    -gpu: String
+    +ComputerBuilder(cpu: String, ram: String)
+    +setStorage(storage: String): ComputerBuilder
+    +setGpu(gpu: String): ComputerBuilder
+    +build(): Computer
+}
+
+class ComputerConfigurationDemo {
+    +main(args: String[]): void
+}
+
+Computer +-- ComputerBuilder : inner class
+ComputerBuilder ..> Computer : builds
+ComputerConfigurationDemo ..> ComputerBuilder : uses
+
+note right of Computer
+  Complex Product
+  Has multiple components
+  Private constructor forces
+  use of builder
+end note
+
+note right of ComputerBuilder
+  Builder Class
+  Provides fluent interface
+  for step-by-step construction
+  Validates required components
+end note
+
+note top of ComputerConfigurationDemo
+  Client Code
+  Uses builder to create
+  different computer configurations
+end note
+
+note as BuilderFlow
+  **Builder Pattern Flow:**
+  1. Create builder with required components
+  2. Add optional components using fluent interface
+  3. Call build() to get final product
+  4. Builder validates and constructs object
+end note
+
+@enduml

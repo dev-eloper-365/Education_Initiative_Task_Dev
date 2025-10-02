@@ -1,0 +1,126 @@
+@startuml Exercise 1 - Design Patterns Overview
+!theme plain
+hide empty members
+title Exercise 1: Design Patterns Implementation Overview
+
+package "Main Application" {
+    class Main {
+        +main(args: String[]): void
+        -displayMenu(): void
+        -getUserChoice(scanner: Scanner): int
+    }
+}
+
+package "Utility" {
+    class LoggerUtil {
+        +log(message: String): void
+        +info(message: String): void
+        +warning(message: String): void
+        +error(message: String): void
+        +debug(message: String): void
+    }
+}
+
+package "Behavioral Patterns" {
+    package "Observer Pattern" {
+        interface StockObserver
+        class StockMarket
+        class StockTrader
+        class StockMarketDemo
+    }
+    
+    package "Strategy Pattern" {
+        interface PaymentStrategy
+        class CreditCardPayment
+        class PayPalPayment
+        class ShoppingCart
+        class PaymentDemo
+    }
+}
+
+package "Creational Patterns" {
+    package "Factory Pattern" {
+        interface Vehicle
+        class Car
+        class Motorcycle
+        class Truck
+        class VehicleFactory
+        class VehicleManufacturingDemo
+    }
+    
+    package "Builder Pattern" {
+        class Computer
+        class ComputerBuilder
+        class ComputerConfigurationDemo
+    }
+}
+
+package "Structural Patterns" {
+    package "Adapter Pattern" {
+        interface ModernPaymentGateway
+        class LegacyPaymentSystem
+        class LegacyPaymentAdapter
+        class ModernPaymentProcessor
+        class PaymentSystemIntegrationDemo
+    }
+    
+    package "Decorator Pattern" {
+        interface Coffee
+        class SimpleCoffee
+        abstract class CoffeeDecorator
+        class MilkDecorator
+        class SugarDecorator
+        class CoffeeOrderingDemo
+    }
+}
+
+Main ..> StockMarketDemo : executes
+Main ..> PaymentDemo : executes
+Main ..> VehicleManufacturingDemo : executes
+Main ..> ComputerConfigurationDemo : executes
+Main ..> PaymentSystemIntegrationDemo : executes
+Main ..> CoffeeOrderingDemo : executes
+Main ..> LoggerUtil : uses
+
+StockMarketDemo ..> LoggerUtil : uses
+PaymentDemo ..> LoggerUtil : uses
+VehicleManufacturingDemo ..> LoggerUtil : uses
+ComputerConfigurationDemo ..> LoggerUtil : uses
+PaymentSystemIntegrationDemo ..> LoggerUtil : uses
+CoffeeOrderingDemo ..> LoggerUtil : uses
+
+note right of Main
+  **Interactive Menu System**
+  - No hard-coded boolean flags
+  - Comprehensive error handling
+  - User-friendly interface
+  - Graceful exit mechanism
+end note
+
+note right of LoggerUtil
+  **Gold Standard Logging**
+  - Multiple log levels
+  - Timestamp formatting
+  - Console and Java logging
+  - Professional formatting
+end note
+
+note top of "Behavioral Patterns"
+  **Behavioral Patterns**
+  Define how objects interact
+  and communicate with each other
+end note
+
+note top of "Creational Patterns"
+  **Creational Patterns**
+  Deal with object creation
+  mechanisms and instantiation
+end note
+
+note top of "Structural Patterns"
+  **Structural Patterns**
+  Deal with object composition
+  and relationships between entities
+end note
+
+@enduml

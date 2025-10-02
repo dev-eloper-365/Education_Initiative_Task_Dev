@@ -1,0 +1,88 @@
+@startuml Decorator Pattern - Coffee Ordering
+!theme plain
+hide empty members
+title Decorator Pattern - Coffee Ordering System
+
+interface Coffee {
+    +getDescription(): String
+    +getCost(): double
+}
+
+class SimpleCoffee {
+    +getDescription(): String
+    +getCost(): double
+}
+
+abstract class CoffeeDecorator {
+    #coffee: Coffee
+    +CoffeeDecorator(coffee: Coffee)
+    +getDescription(): String
+    +getCost(): double
+}
+
+class MilkDecorator {
+    +MilkDecorator(coffee: Coffee)
+    +getDescription(): String
+    +getCost(): double
+}
+
+class SugarDecorator {
+    +SugarDecorator(coffee: Coffee)
+    +getDescription(): String
+    +getCost(): double
+}
+
+class CoffeeOrderingDemo {
+    +main(args: String[]): void
+}
+
+Coffee <|.. SimpleCoffee : implements
+Coffee <|.. CoffeeDecorator : implements
+CoffeeDecorator <|-- MilkDecorator : extends
+CoffeeDecorator <|-- SugarDecorator : extends
+CoffeeDecorator o--> Coffee : wraps
+CoffeeOrderingDemo ..> SimpleCoffee : creates
+CoffeeOrderingDemo ..> MilkDecorator : creates
+CoffeeOrderingDemo ..> SugarDecorator : creates
+
+note right of Coffee
+  Component Interface
+  Defines operations for
+  coffee objects
+end note
+
+note right of SimpleCoffee
+  Concrete Component
+  Basic coffee implementation
+  without any additions
+end note
+
+note right of CoffeeDecorator
+  Base Decorator
+  Maintains reference to
+  wrapped coffee object
+  Delegates calls to wrapped object
+end note
+
+note bottom of MilkDecorator
+  Concrete Decorator
+  Adds milk functionality
+  Enhances description and cost
+end note
+
+note bottom of SugarDecorator
+  Concrete Decorator
+  Adds sugar functionality
+  Enhances description and cost
+end note
+
+note as DecoratorFlow
+  **Decorator Pattern Flow:**
+  1. Start with base coffee
+  2. Wrap with decorators as needed
+  3. Each decorator adds functionality
+  4. Final object has all features
+  5. Can stack multiple decorators
+end note
+
+@enduml

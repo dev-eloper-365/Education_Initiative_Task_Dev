@@ -1,0 +1,63 @@
+@startuml Strategy Pattern - Payment Processing
+!theme plain
+hide empty members
+title Strategy Pattern - Payment Processing System
+
+interface PaymentStrategy {
+    +pay(amount: double): void
+}
+
+class CreditCardPayment {
+    -cardNumber: String
+    +CreditCardPayment(cardNumber: String)
+    +pay(amount: double): void
+}
+
+class PayPalPayment {
+    -email: String
+    +PayPalPayment(email: String)
+    +pay(amount: double): void
+}
+
+class ShoppingCart {
+    -paymentStrategy: PaymentStrategy
+    +setPaymentStrategy(strategy: PaymentStrategy): void
+    +checkout(amount: double): void
+}
+
+class PaymentDemo {
+    +main(args: String[]): void
+}
+
+PaymentStrategy <|.. CreditCardPayment : implements
+PaymentStrategy <|.. PayPalPayment : implements
+ShoppingCart o--> PaymentStrategy : uses
+PaymentDemo ..> ShoppingCart : creates
+PaymentDemo ..> CreditCardPayment : creates
+PaymentDemo ..> PayPalPayment : creates
+
+note right of PaymentStrategy
+  Strategy Interface
+  Defines payment contract
+  for different payment methods
+end note
+
+note right of ShoppingCart
+  Context Class
+  Uses PaymentStrategy
+  Can switch strategies at runtime
+end note
+
+note bottom of CreditCardPayment
+  Concrete Strategy
+  Implements credit card
+  payment processing
+end note
+
+note bottom of PayPalPayment
+  Concrete Strategy
+  Implements PayPal
+  payment processing
+end note
+
+@enduml

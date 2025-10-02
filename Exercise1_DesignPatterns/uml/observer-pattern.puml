@@ -1,0 +1,53 @@
+@startuml Observer Pattern - Stock Market
+!theme plain
+hide empty members
+title Observer Pattern - Stock Market Notification System
+
+interface StockObserver {
+    +update(stockSymbol: String, price: double): void
+}
+
+class StockMarket {
+    -observers: List<StockObserver>
+    -stockSymbol: String
+    -price: double
+    +addObserver(observer: StockObserver): void
+    +removeObserver(observer: StockObserver): void
+    +setStockInfo(stockSymbol: String, price: double): void
+    -notifyObservers(): void
+}
+
+class StockTrader {
+    -name: String
+    +StockTrader(name: String)
+    +update(stockSymbol: String, price: double): void
+}
+
+class StockMarketDemo {
+    +main(args: String[]): void
+}
+
+StockObserver <|.. StockTrader : implements
+StockMarket o--> "0..*" StockObserver : notifies
+StockMarketDemo ..> StockMarket : uses
+StockMarketDemo ..> StockTrader : creates
+
+note right of StockMarket
+  Subject in Observer Pattern
+  Maintains list of observers
+  Notifies all observers when
+  stock price changes
+end note
+
+note right of StockTrader
+  Concrete Observer
+  Receives notifications
+  when stock prices update
+end note
+
+note top of StockObserver
+  Observer Interface
+  Defines update contract
+end note
+
+@enduml
