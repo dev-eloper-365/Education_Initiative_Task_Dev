@@ -1,185 +1,84 @@
-# Exercise 1: Design Patterns Implementation
+# Task 1: Design Patterns Demo
 
-## Overview
-This project demonstrates the implementation of six different software design patterns in Java, showcasing real-world use cases and best practices. The implementation follows gold standards for logging, exception handling, and defensive programming.
+## Introduction
 
-## Project Structure
-```
-Exercise1_DesignPatterns/
-├── behavioral/
-│   ├── observer/          # Stock Market Notification System
-│   └── strategy/          # Payment Processing System
-├── creational/
-│   ├── builder/           # Computer Configuration System
-│   └── factory/           # Vehicle Manufacturing System
-├── structural/
-│   ├── adapter/           # Legacy Payment System Integration
-│   └── decorator/         # Coffee Ordering System
-├── uml/                   # UML diagrams for all patterns
-│   ├── observer-pattern.puml
-│   ├── strategy-pattern.puml
-│   ├── factory-pattern.puml
-│   ├── builder-pattern.puml
-│   ├── adapter-pattern.puml
-│   ├── decorator-pattern.puml
-│   ├── exercise1-overview.puml
-│   └── README.md          # UML documentation
-├── util/
-│   └── LoggerUtil.java    # Gold standard logging utility
-└── Main.java              # Interactive menu system
-```
+This project serves as a comprehensive demonstration of several software design patterns implemented in Java. It aims to provide a clear and concise understanding of how these design patterns can be applied to real-world scenarios, showcasing their benefits and practical usage.
 
 ## Design Patterns Implemented
 
-### 1. Behavioral Patterns
+The project covers the following design patterns:
 
-#### Observer Pattern - Stock Market Notification System
-- **Location**: `behavioral/observer/`
-- **UML Diagram**: `uml/observer-pattern.puml`
-- **Use Case**: Real-time stock price notifications to multiple traders
+1. **Behavioral Patterns**:
+   - **Observer Pattern**: Implemented in the `com.designpatterns.behavioral.observer` package. The use case is a Stock Market Notification System.
+     
+    ![Class Diagram](uml/Observer%20Pattern%20-%20Stock%20Market%20Notification%20System.png)
+   
+   - **Strategy Pattern**: Implemented in the `com.designpatterns.behavioral.strategy` package. The use case is a Payment Processing System.
+     
+     ![Class Diagram](uml/Strategy%20Pattern%20-%20Payment%20Processing.png)
+     
 
-![Observer Pattern UML](uml/Observer%20Pattern%20-%20Stock%20Market%20Notification%20System.png)
-- **Key Classes**:
-  - `StockMarket`: Subject that maintains stock prices
-  - `StockObserver`: Observer interface for notifications
-  - `StockTrader`: Concrete observer receiving price updates
-- **Benefits**: Loose coupling between stock market and traders, easy to add/remove observers
+2. **Creational Patterns**:
+   - **Factory Pattern**: Implemented in the `com.designpatterns.creational.factory` package. The use case is a Vehicle Manufacturing System.
+     
+     ![Class Diagram](uml/Factory%20Pattern%20-%20Vehicle%20Manufacturing.png)
+     
+   - **Builder Pattern**: Implemented in the `com.designpatterns.creational.builder` package. The use case is a Custom Computer Configuration System.
+     
+     ![Class Diagram](uml/Builder%20Pattern%20-%20Computer%20Configuration.png)
+     
 
-#### Strategy Pattern - Payment Processing System
-- **Location**: `behavioral/strategy/`
-- **UML Diagram**: `uml/strategy-pattern.puml`
-- **Use Case**: Multiple payment methods in an e-commerce system
+3. **Structural Patterns**:
+   - **Adapter Pattern**: Implemented in the `com.designpatterns.structural.adapter` package. The use case is a Legacy Payment System Integration.
+     
+     ![Class Diagram](uml/Adapter%20Pattern%20-%20Legacy%20Payment%20System.png)
+     
+   - **Decorator Pattern**: Implemented in the `com.designpatterns.structural.decorator` package. The use case is a Coffee Ordering System.
+     
+     ![Class Diagram](uml/Decorator%20Pattern%20-%20Coffee%20Ordering.png)
+     
 
-![Strategy Pattern UML](uml/Strategy%20Pattern%20-%20Payment%20Processing.png)
-- **Key Classes**:
-  - `PaymentStrategy`: Strategy interface
-  - `CreditCardPayment`, `PayPalPayment`: Concrete strategies
-  - `ShoppingCart`: Context that uses payment strategies
-- **Benefits**: Runtime algorithm selection, easy to add new payment methods
+## Features
 
-### 2. Creational Patterns
+- Comprehensive implementation of six design patterns in Java
+- Real-world use cases for each design pattern
+- Well-structured and modular code organization
+- Intuitive command-line interface for demonstrating the patterns
+- Professional logging mechanism with multiple levels
+- Extensible and customizable design to allow for future additions
 
-#### Factory Pattern - Vehicle Manufacturing System
-- **Location**: `creational/factory/`
-- **UML Diagram**: `uml/factory-pattern.puml`
-- **Use Case**: Manufacturing different types of vehicles
+## Getting Started
 
-![Factory Pattern UML](uml/Factory%20Pattern%20-%20Vehicle%20Manufacturing.png)
-- **Key Classes**:
-  - `Vehicle`: Product interface
-  - `Car`, `Motorcycle`, `Truck`: Concrete products
-  - `VehicleFactory`: Factory for creating vehicles
-- **Benefits**: Encapsulates object creation, easy to add new vehicle types
+To run the Design Patterns Demo project, follow these steps:
 
-#### Builder Pattern - Computer Configuration System
-- **Location**: `creational/builder/`
-- **UML Diagram**: `uml/builder-pattern.puml`
-- **Use Case**: Building custom computer configurations
+1. Ensure you have Java Development Kit (JDK) version 8 or higher installed on your system.
+2. Clone the repository or download the source code.
+3. Open the project in your preferred Java IDE (e.g., IntelliJ IDEA, Eclipse, or Visual Studio Code).
+4. Build the project and resolve any dependencies.
+5. Run the `Main.java` file located in the `com.designpatterns` package.
+6. The console will display a menu with options to choose from. Enter the corresponding number to run the demo for each design pattern.
 
-![Builder Pattern UML](uml/Builder%20Pattern%20-%20Computer%20Configuration.png)
-- **Key Classes**:
-  - `Computer`: Complex product with multiple components
-  - `ComputerBuilder`: Builder for step-by-step construction
-- **Benefits**: Flexible object construction, readable code for complex objects
+## Getting Started (Command Line)
 
-### 3. Structural Patterns
+Prerequisites: Java 8+ (JDK)
 
-#### Adapter Pattern - Legacy Payment System Integration
-- **Location**: `structural/adapter/`
-- **UML Diagram**: `uml/adapter-pattern.puml`
-- **Use Case**: Integrating legacy payment systems with modern interfaces
+1. Navigate to the project directory:
+   ```
+   cd Exercise1_DesignPatterns
+   ```
+2. Compile the Java files:
+   ```
+   javac -d out *.java */*.java */*/*.java
+   ```
+3. Run the main class:
+   ```
+   java -cp out com.designpatterns.Main
+   ```
 
-![Adapter Pattern UML](uml/Adapter%20Pattern%20-%20Legacy%20Payment%20System.png)
-- **Key Classes**:
-  - `ModernPaymentGateway`: Target interface
-  - `LegacyPaymentSystem`: Existing system with incompatible interface
-  - `LegacyPaymentAdapter`: Adapter bridging the gap
-- **Benefits**: Reuse existing code, integrate incompatible interfaces
+## Usage
 
-#### Decorator Pattern - Coffee Ordering System
-- **Location**: `structural/decorator/`
-- **UML Diagram**: `uml/decorator-pattern.puml`
-- **Use Case**: Adding features to coffee orders dynamically
+When running the project, the console will display a menu with the following options:
 
-![Decorator Pattern UML](uml/Decorator%20Pattern%20-%20Coffee%20Ordering.png)
-- **Key Classes**:
-  - `Coffee`: Component interface
-  - `SimpleCoffee`: Base concrete component
-  - `MilkDecorator`, `SugarDecorator`: Concrete decorators
-- **Benefits**: Dynamic feature addition, flexible composition
-
-## UML Diagrams
-
-This project includes comprehensive UML class diagrams for all implemented design patterns:
-
-### Individual Pattern Diagrams
-- **Observer Pattern**: `uml/observer-pattern.puml` - Stock Market notification system
-- **Strategy Pattern**: `uml/strategy-pattern.puml` - Payment processing system  
-- **Factory Pattern**: `uml/factory-pattern.puml` - Vehicle manufacturing system
-- **Builder Pattern**: `uml/builder-pattern.puml` - Computer configuration system
-- **Adapter Pattern**: `uml/adapter-pattern.puml` - Legacy payment integration
-- **Decorator Pattern**: `uml/decorator-pattern.puml` - Coffee ordering system
-
-### System Overview
-- **Complete Architecture**: `uml/exercise1-overview.puml` - Full system structure
-
-*Note: Generate PNG from PUML file using PlantUML for visual diagram*
-
-### Viewing UML Diagrams
-1. **Online**: Copy content to [PlantUML Online Server](http://www.plantuml.com/plantuml/uml/)
-2. **VS Code**: Install PlantUML extension and press `Alt+D`
-3. **Local**: Use PlantUML JAR to generate PNG/SVG files
-
-See `uml/README.md` for detailed instructions and diagram explanations.
-
-## Gold Standards Implementation
-
-### 1. Logging Mechanism
-- **Class**: `LoggerUtil`
-- **Features**:
-  - Multiple log levels (INFO, WARNING, ERROR, DEBUG)
-  - Timestamp formatting
-  - Both console and Java logging integration
-  - Proper error stream usage for errors
-
-### 2. Exception Handling
-- Comprehensive try-catch blocks in main application
-- Input validation with `InputMismatchException` handling
-- Graceful error recovery and user feedback
-- Defensive programming practices
-
-### 3. Performance Optimization
-- Efficient data structures usage
-- Minimal object creation in loops
-- Proper resource management (Scanner closing)
-- Thread-safe implementations where applicable
-
-### 4. Code Quality
-- **SOLID Principles**: Each pattern demonstrates specific SOLID principles
-- **Separation of Concerns**: Clear package structure and class responsibilities
-- **Naming Conventions**: Consistent Java naming conventions
-- **Documentation**: Comprehensive JavaDoc and comments
-
-## How to Run
-
-### Prerequisites
-- Java Development Kit (JDK) 8 or higher
-- Any Java IDE (IntelliJ IDEA, Eclipse, VS Code) or command line
-
-### Compilation and Execution
-```bash
-# Navigate to the project directory
-cd Exercise1_DesignPatterns
-
-# Compile all Java files
-javac -d out *.java */*.java */*/*.java
-
-# Run the main application
-java -cp out com.designpatterns.Main
-```
-
-### Interactive Menu
-The application provides an interactive menu with the following options:
 1. Observer Pattern (Stock Market)
 2. Strategy Pattern (Payment Processing)
 3. Factory Pattern (Vehicle Manufacturing)
@@ -188,65 +87,70 @@ The application provides an interactive menu with the following options:
 6. Decorator Pattern (Coffee Ordering)
 0. Exit
 
-## Key Features
+Select the desired option by entering the corresponding number. The selected design pattern demo will be executed, and you can observe the output in the console. After each demo, press Enter to return to the main menu.
 
-### 1. User Experience
-- Interactive command-line interface
-- Clear menu navigation
-- Graceful error handling
-- Informative output messages
+## Architecture
 
-### 2. Code Architecture
-- Modular design with clear separation
-- Extensible structure for adding new patterns
-- Consistent error handling across all patterns
-- Professional logging implementation
+```
+Exercise1_DesignPatterns/
+├── behavioral/
+│   ├── observer/
+│   │   ├── StockMarket.java
+│   │   ├── StockObserver.java
+│   │   ├── StockTrader.java
+│   │   └── StockMarketDemo.java
+│   └── strategy/
+│       ├── PaymentStrategy.java
+│       ├── CreditCardPayment.java
+│       ├── PayPalPayment.java
+│       ├── ShoppingCart.java
+│       └── PaymentDemo.java
+├── creational/
+│   ├── factory/
+│   │   ├── Vehicle.java
+│   │   ├── Car.java
+│   │   ├── Motorcycle.java
+│   │   ├── Truck.java
+│   │   ├── VehicleFactory.java
+│   │   └── VehicleManufacturingDemo.java
+│   └── builder/
+│       ├── Computer.java
+│       └── ComputerConfigurationDemo.java
+├── structural/
+│   ├── adapter/
+│   │   ├── ModernPaymentGateway.java
+│   │   ├── LegacyPaymentSystem.java
+│   │   ├── LegacyPaymentAdapter.java
+│   │   ├── ModernPaymentProcessor.java
+│   │   └── PaymentSystemIntegrationDemo.java
+│   └── decorator/
+│       ├── Coffee.java
+│       ├── SimpleCoffee.java
+│       ├── CoffeeDecorator.java
+│       ├── MilkDecorator.java
+│       ├── SugarDecorator.java
+│       └── CoffeeOrderingDemo.java
+├── util/
+│   └── LoggerUtil.java
+├── uml/
+│   ├── *.puml files
+│   ├── *.png files
+│   └── README.md
+└── Main.java
+```
 
-### 3. Educational Value
-- Real-world use cases for each pattern
-- Clear demonstration of pattern benefits
-- Well-documented code with explanations
-- Easy to understand and modify
+## Gold Standards Implementation
 
-## Design Decisions
+- **Professional Logging**: Multi-level logging with timestamps and proper formatting
+- **Exception Handling**: Comprehensive error management with graceful degradation
+- **Input Validation**: Robust input validation and user-friendly error messages
+- **Code Quality**: SOLID principles, clean architecture, and consistent naming conventions
+- **Performance**: Efficient data structures and optimized resource management
 
-### 1. Package Structure
-- Organized by pattern category (behavioral, creational, structural)
-- Each pattern in its own package for clear separation
-- Utility classes in dedicated util package
+## Notes & Future Work
 
-### 2. Error Handling Strategy
-- Centralized logging utility
-- Consistent exception handling patterns
-- User-friendly error messages
-- Graceful degradation on errors
-
-### 3. Extensibility
-- Easy to add new design patterns
-- Modular structure supports independent pattern development
-- Clear interfaces for extending functionality
-
-## Testing and Quality Assurance
-
-### 1. Manual Testing
-- Each pattern thoroughly tested with various inputs
-- Edge cases considered and handled
-- User interaction scenarios validated
-
-### 2. Code Quality
-- Consistent formatting and style
-- Comprehensive error handling
-- Performance considerations implemented
-- Memory management best practices
-
-## Future Enhancements
-
-1. **Additional Patterns**: Command, State, Template Method patterns
-2. **Configuration**: External configuration for pattern parameters
-3. **Persistence**: Save and load pattern execution results
-4. **GUI Interface**: Swing or JavaFX interface for better user experience
-5. **Unit Tests**: Comprehensive JUnit test suite
-
-## Conclusion
-
-This implementation demonstrates a thorough understanding of design patterns, their practical applications, and professional Java development practices. The code follows industry standards and provides a solid foundation for understanding and applying design patterns in real-world scenarios.
+- Add more design patterns (Command, State, Template Method)
+- Implement GUI interface using JavaFX or Swing
+- Add configuration file support for pattern parameters
+- Extend logging capabilities with file output
+- Add comprehensive unit test suite
