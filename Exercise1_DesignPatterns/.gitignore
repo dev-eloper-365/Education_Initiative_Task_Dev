@@ -1,19 +1,10 @@
-# Exercise 2: Smart Home System - .gitignore
+# Exercise 1: Design Patterns Demo - .gitignore
 
 # Compiled Java classes
 *.class
 
-# Maven build directory
-target/
-
-# Maven wrapper files (if using Maven wrapper)
-.mvn/
-mvnw
-mvnw.cmd
-
-# Compilation artifacts
+# Compilation output directory
 out/
-build/
 
 # Java compilation source list
 sources.txt
@@ -81,39 +72,19 @@ $RECYCLE.BIN/
 *.backup
 *.orig
 
-# Maven specific
-dependency-reduced-pom.xml
-.flattened-pom.xml
-
-# Test results and reports
-TEST-*.xml
-*.tlog
-surefire-reports/
+# UML generation artifacts (keep source .puml files, ignore generated files)
+# Keep: *.puml files
+# Keep: *.png files (these are our generated diagrams)
+# Ignore: temporary UML generation files
+*.puml~
+*.puml.bak
 
 # Java documentation
 javadoc/
 
+# Test results
+TEST-*.xml
+
 # Application logs
 application.log
 application-*.log
-
-# Smart Home System specific
-# Keep: classdiagramimages/ directory and PNG files
-# Keep: *.puml files for UML source
-# Ignore: temporary diagram generation files
-*.puml~
-*.puml.bak
-
-# Database files (if any)
-*.db
-*.sqlite
-*.h2.db
-
-# Configuration files with sensitive data
-application-local.properties
-application-dev.properties
-*.env
-
-# JVM crash logs
-hs_err_pid*
-replay_pid*
