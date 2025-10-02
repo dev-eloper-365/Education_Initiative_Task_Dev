@@ -1,32 +1,5 @@
 # Education Initiative Task - Software Development Exercises
 
-## Project Overview
-
-This repository contains two comprehensive software development exercises demonstrating advanced Java programming skills, design pattern implementation, and professional software development practices. Both exercises showcase real-world applications with gold-standard coding practices including professional logging, comprehensive exception handling, thread safety, and performance optimization.
-
-## 📁 Project Structure
-
-```
-Education_Initiative_Task_Dev/
-├── Exercise1_DesignPatterns/          # Design Patterns Implementation
-│   ├── behavioral/                    # Observer & Strategy patterns
-│   ├── creational/                    # Factory & Builder patterns  
-│   ├── structural/                    # Adapter & Decorator patterns
-│   ├── uml/                          # UML diagrams with PNG visualizations
-│   ├── util/                         # Gold standard logging utility
-│   ├── Main.java                     # Interactive menu system
-│   └── README.md                     # Detailed exercise documentation
-├── Exercise2_SmartHomeSystem/         # Smart Home System Implementation
-│   ├── src/main/java/                # Main application source
-│   ├── src/test/java/                # Test source files
-│   ├── classdiagramimages/           # UML class diagrams
-│   ├── target/                       # Compiled classes and JAR
-│   └── README.md                     # Detailed exercise documentation
-└── README.md                         # This comprehensive guide
-```
-
----
-
 # Task 1: Design Patterns Demo
 
 ## Introduction
@@ -382,6 +355,3 @@ This comprehensive project demonstrates mastery of software design patterns, pro
 
 The implementation follows all specified requirements while exceeding expectations in code quality, documentation, and real-world applicability. The projects serve as excellent examples of professional Java development and design pattern implementation.
 
----
-
-*Developed for Education Initiative coding assessment, showcasing advanced Java programming skills, design pattern expertise, and professional software development practices.*
