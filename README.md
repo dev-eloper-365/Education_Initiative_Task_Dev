@@ -167,6 +167,44 @@ This project serves as a comprehensive demonstration of several software design 
 
   ![Class Diagram](Exercise2_SmartHomeSystem/classdiagramimages/singleton.png)
 
+## Exercise 2 - Architecture
+
+![Architecture Diagram](Exercise2_SmartHomeSystem/classdiagramimages/smarthome.png)
+
+```
+Exercise2_SmartHomeSystem/
+├─ src/
+│  ├─ main/
+│  │  └─ java/
+│  │     └─ com/smarthome/core/
+│  │        ├─ Main.java
+│  │        ├─ SmartHomeHub.java
+│  │        ├─ Device.java
+│  │        ├─ DeviceType.java
+│  │        ├─ DeviceFactory.java
+│  │        ├─ DeviceProxy.java
+│  │        ├─ Subject.java
+│  │        ├─ DeviceObserver.java
+│  │        ├─ Trigger.java
+│  │        ├─ Schedule.java
+│  │        ├─ devices/
+│  │        │  ├─ Light.java
+│  │        │  ├─ Thermostat.java
+│  │        │  └─ Door.java
+│  │        └─ exceptions/
+│  │           ├─ InvalidTriggerException.java
+│  │           ├─ UnauthorizedAccessException.java
+│  │           └─ UnsupportedActionException.java
+│  └─ test/
+│     └─ java/
+│        └─ com/smarthome/core/
+│           └─ SmartHomeHubTest.java
+├─ classdiagramimages/
+└─ target/
+```
+
+---
+
 ## Exercise 2 Features
 
 - Device control: turn on/off lights, lock/unlock doors, adjust thermostat temperature
@@ -236,43 +274,6 @@ Thermostat is set to 72 degrees.
 Door 3 is Locked.
 ```
 
-## Exercise 2 - Architecture
-
-![Architecture Diagram](Exercise2_SmartHomeSystem/classdiagramimages/smarthome.png)
-
-```
-Exercise2_SmartHomeSystem/
-├─ src/
-│  ├─ main/
-│  │  └─ java/
-│  │     └─ com/smarthome/core/
-│  │        ├─ Main.java
-│  │        ├─ SmartHomeHub.java
-│  │        ├─ Device.java
-│  │        ├─ DeviceType.java
-│  │        ├─ DeviceFactory.java
-│  │        ├─ DeviceProxy.java
-│  │        ├─ Subject.java
-│  │        ├─ DeviceObserver.java
-│  │        ├─ Trigger.java
-│  │        ├─ Schedule.java
-│  │        ├─ devices/
-│  │        │  ├─ Light.java
-│  │        │  ├─ Thermostat.java
-│  │        │  └─ Door.java
-│  │        └─ exceptions/
-│  │           ├─ InvalidTriggerException.java
-│  │           ├─ UnauthorizedAccessException.java
-│  │           └─ UnsupportedActionException.java
-│  └─ test/
-│     └─ java/
-│        └─ com/smarthome/core/
-│           └─ SmartHomeHubTest.java
-├─ classdiagramimages/
-└─ target/
-```
-
----
 
 # Gold Standards Implementation
 
