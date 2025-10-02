@@ -1,3 +1,5 @@
+![Education Initiative](image.png)
+
 # Education Initiative Task - Software Development Exercises
 
 # Task 1: Design Patterns Demo

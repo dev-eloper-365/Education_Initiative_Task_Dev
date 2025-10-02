@@ -1,3 +1,5 @@
+![Education Initiative](../image.png)
+
 # Smart Home System
 
 ## Introduction

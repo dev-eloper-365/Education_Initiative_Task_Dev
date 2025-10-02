@@ -1,3 +1,5 @@
+![Education Initiative](../image.png)
+
 # Task 1: Design Patterns Demo
 
 ## Introduction
